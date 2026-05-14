@@ -1,0 +1,96 @@
+
+:root{
+    /* Primary color */
+    --primary-950: #4DB100;
+    --primary-900: #55b40c;
+    --primary-800: #67bc26;
+    --primary-700: #79c43f;
+    --primary-600: #8bcc59;
+    --primary-500: #9dd472;
+    --primary-400: #aedb8c;
+    --primary-300: #C0E3A5;
+    --primary-200: #D2EBBF;
+    --primary-100: #EAF3D8;
+    --primary-50: #F6FBF2;
+
+    /*Secundary color*/
+    --secundary-950: #FED638;
+    --secundary-900: #FED841;
+    --secundary-800: #FEDC55;
+    --secundary-700: #FEE069;
+    --secundary-600: #FEE47D;
+    --secundary-500: #FEE891;
+    --secundary-400: #FEECA5;
+    --secundary-300: #FEF0B9;
+    --secundary-200: #FEF4CD;
+    --secundary-100: #FEF8E1;
+    --secundary-50: #FEFCF5;
+
+    /*Tertiary-2 color*/
+    --tertiary-950: #50E5F9;
+    --tertiary-900: #58E6F9;
+    --tertiary-800: #6AE8F9;
+    --tertiary-700: #7BEBFA;
+    --tertiary-600: #8DEEFB;
+    --tertiary-500: #9EF0FB;
+    --tertiary-400: #B0F3FC;
+    --tertiary-300: #C1F5FC;
+    --tertiary-200: #D3F8FD;
+    --tertiary-100: #E4FBFE;
+    --tertiary-50: #F6FDFE;
+
+    /*Basic color*/
+    --white: #fff;
+    --black: #000;
+    --gray-950: #1010;
+    --gray-900: #262626;
+    --gray-800: #3B3B3B;
+    --gray-700: #515151;
+    --gray-600: #676767;
+    --gray-500: #7D7D7D;
+    --gray-400: #929292;
+    --gray-300: #A8A8A8;
+    --gray-200: #BEBEBE;
+    --gray-100: #D4D4D4;
+    --gray-50: #E9E9E9;
+
+/* Typography */
+    --main-font: Helvetica, Arial, sans-serif;
+    --secondary-font: Calibri, Helvetica, Arial;
+
+
+
+/*Font-weight crudos*/
+    --font-wight-light: 300;
+    --font-wight-regular: 400;
+    --font-wight-bold: 700
+
+/*Font-size*/
+    --fs-xxxxl: 5rem; /*Ultra grande*/
+    --fs-xxxl: 4rem; /*Súper grande*/
+    --fs-xxl: 3rem; /*Extra grande*/
+    --fs-xl: 2.5rem; /*Muy grande*/
+    --fs-lg: 2rem; /*h1*/
+    --fs-md: 1.5rem; /*Titulo*/
+    --fs-sm: 1.25rem; /*Subtitulo*/
+    --fs-xs: 1rem; /*Base*/
+    --fs-xxs: 0.875rem; /*Texto de apoyo*/
+    --fs-xxxs: 0.75rem; /*Texto de apoyo 2*/
+    --fs-xxxxs: 0.5rem; /*Label*/
+}
+
+/* Globals*/
+html{
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body{
+    font-size: 1.6rem;
+    font-family: var(--main-font);
+    margin: 0 0;
+}

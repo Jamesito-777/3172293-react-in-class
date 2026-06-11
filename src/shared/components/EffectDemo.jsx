@@ -5,11 +5,14 @@
 import { useEffect, useState } from "react"
 
 export default function EffectDemo(){
+    /*Creamos un estado con message, y setmessage verifica si se hizo el cambio */
     const [message, setMessage] = useState ("Cargando...")
+
     useEffect(() => {
         setTimeout(() => {
             setMessage("Componente cargando")
         }, 2000);
+        /**Las llaves vacias significa que lo tenemos sin dependencias */
     }, []);
     return <h1>{message}</h1>
 

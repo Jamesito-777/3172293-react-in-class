@@ -1,11 +1,27 @@
+import { useState, useEffect } from "react";
+
 import { Outlet } from "react-router-dom";
 import authBg from "@/assets/images/bg-1.png";
-import { Input, Button } from "@/shared"
-import DeleteCounter2 from "../components/DeleteCounter2";
-
+import { 
+    Input,
+    Button,
+    DeleteCounter2,
+    Select,
+    Checkbox
+    } from "@/shared"
+import { getDocumentTypes } from "../../services/selectService";
 
 
 export default function AuthLayout () {
+
+    //Estado para los tipos de documentos
+    const [documentTypes, setDocumentTypes] = useState ([])
+
+    //Uso del estado useEffect
+    useEffect (() => {
+        getDocumentTypes().then(setDocumentTypes)
+    },[])
+
     return (
         <>
             <div
@@ -28,7 +44,7 @@ export default function AuthLayout () {
                         <Input
                         label="Correo"
                         type="email"
-                        placeholder="Escribe tu correo"
+                        placeholder="Escribe tu correo electronico"
                         htmlFor="user-email"
                         />
                         <Input
@@ -79,6 +95,24 @@ export default function AuthLayout () {
                             </div>
 
                         {/* <h1>Hola que tal</h1> */}
+                        {/*Implementación de useEffect */}
+                        {/* <div>
+                            <h1>Este es mi useEffect</h1>
+                            <div className="mt-12"></div>
+                            <EffectDemo/>
+                        </div> */}
+                        {/* <CounterEffect/> */}
+
+                        <Select
+                            label="Tipos de dodumento"
+                            name="userDocumentTypes"
+                            htmlFor="userDocumentTypes"
+                            options={documentTypes}
+                            />
+
+                            <Checkbox/>
+
+                            
                     <Outlet/>
                 </main>
             </div>

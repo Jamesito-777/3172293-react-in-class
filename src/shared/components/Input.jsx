@@ -1,38 +1,41 @@
 export default function Input({
     label,
+    error,
     htmlFor, //Es para accesibilidad, la persona que tiene una discapacidad va a escuchar el texto que esta ahi con tab
     type = "text",
     variant="primary",
-    size="sm",
+    size = "sm",
     ...props
 }){
+    
     const variants = {
-        //OBLIGATORIO: ESTOS VALORES DEBEN SER CON VARIABLES
+            //Estos valores deben ser con variables 
         primary: `
             border-brand
             bg-background
-
-        `,
+        `, 
         secondary: `
-            border-red-950
+            border-red-300
             bg-gray-300
-        `,
+        `, 
         tertiary: `
             border-green-950
         `
     }
     const sizes = {
+        
         sm: `
             h-8
-
-        `,
+            
+        `, 
         md: `
             h-10
-        `,
+        `, 
         lg: `
             h-12
         `
     }
+
 
     return(
         <div className="w-80">
@@ -43,17 +46,19 @@ export default function Input({
                 className={`
                     block
                     text-caption
+                    mb-1
                     text-secondary
-                    
-                    ${  
+                    ${
                         size === "sm"
-                        ? "-mb-2"
+                            ? "-mb-2"
                         : size === "md"
-                            ? "mb-0"
-                            : "mb-1"
+                            ? "-mb-0"
+                            : "-mb-1"
                     }
+                    ${error ? "text-red-800" : "text-text-primary"}
                 `}
-                >
+            >
+                
                 {label}
             </label>
 
@@ -94,6 +99,7 @@ export default function Input({
                         border
                         px-4
                         text-body
+                        
 
                         focus:outline-none
                         focus:ring-2
@@ -101,10 +107,16 @@ export default function Input({
                         focus:ring-brand
                         ${variants[variant]}
                         ${sizes[size]}
-                        `}
+
+                        ${error ? "border-red-800" : "border border-border"}
+                    `}
                         {...props}
                     />
             </div>
+            {/*Feedback*/}
+            {error && (
+                <p className="text-caption text-red-800 place-self-start">{error}</p>
+            )}
         </div>
     );
 }

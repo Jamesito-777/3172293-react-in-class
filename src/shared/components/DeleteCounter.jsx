@@ -1,16 +1,15 @@
-//Componente para entender el hook useState
+// Componente par enender el hook useState
 
 import {useState} from "react";
 
 export default function DeleteCounter(){
-
-    //Creamos el estado
+    // Creamos el estado
     const[count, setCount] = useState(0);
-    
     return(
         <div>
-            <p>Contador: {count}</p>
-            <button onClick={() => setCount (count+ 1)} className="border p-6 rounded-md">Incrementar</button>
+            <p>contador: {count} </p>
+            <button onClick={() => setCount(count + 1)} className="border p-6       rounded-md"> Incrementar </button>
+
         </div>
     )
 }

@@ -1,65 +1,42 @@
-// Componenete Select 
-
+﻿// Componente Select reutilizable
 export default function Select({
-    label,
-    error,
-    htmlFor,
-    onChange,
-    value,
-    name,
-    options = [],
-    
-}){
-    return (
-        <div>
-            {/* Label solo se muestra si es Truth un uno logico */}
+  label,
+  name,
+  value,
+  error,
+  onChange,
+  options = [],
+  htmlFor,
+}) {
+  return (
+    <div className="w-[320px]">
+      {label && (
+        <label htmlFor={htmlFor} className="block text-caption mb-1 text-text-muted">
+          {label}
+        </label>
+      )}
 
-            {label &&( //significa una comparacion binaria si label existe entonces se renderiza el label, si no no se renderiza nada
-            <label 
-                htmlFor={htmlFor}
-                className="
-                        block 
-                        text-caption
-                        text-secondary
-                        "
-            >
-                {label}
-            </label>
-        )}
+      <select
+        id={htmlFor}
+        value={value}
+        onChange={onChange}
+        name={name}
+        className="w-full h-12 rounded-md border border-border px-4"
+      >
+        <option value="">Seleccione una opcion</option>
 
-            {/* Select */}
-            <select
-                name={name}
-                onChange={onChange}
-                value={value}
-                id={htmlFor}
-                className="
-                
-                    w-80
-                    h-10
-                    rounded-md
-                    border
-                    px-4
+        {options.map((option) => {
+          const optionValue = option.value ?? option.id;
 
-                    horver:border
-                    border:border-2
-                    hober:border-focus-border
-                    "
-                >
-                   <option value="">Seleccione una opción</option> 
+          return (
+            <option key={optionValue} value={optionValue}>
+              {option.label}
+            </option>
+          );
+        })}
+      </select>
 
-                   {options.map((opt) => (
-                        <option key={opt.value} value={opt.value}>
-                            {opt.label}
-                        </option>
-                   ))}
-                </select>
-                {error && (
-                <p className="text-caption text-red-800 place-self-start mt-1">{error}</p>
-            )}
-        </div>
-         //este es el contenido del selector , primera opcion dise que selecicone una opcion
-
-         //aca abajo cuando oprimo sale el menu de opciones en este caso salen 4, el map es el mapeo el mapear que cogiamos un arreglo recorra el arrelog y recorra el json lo que tiene, cada se le coloco opt pero cada uno se llama option con eso vamos a la key que lo nesecita react pra ir a contextualizar donde tiene que buscar el value es lo que diga y el lebale que lo tenemos en el json que lo va a decir. 
-    )
+      {error && <p className="text-caption text-red-600 mt-1">{error}</p>}
+    </div>
+  );
 }

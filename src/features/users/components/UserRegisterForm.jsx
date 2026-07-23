@@ -1,16 +1,16 @@
 // UserRegisterForm componente para registrar un usuario
 
 import { useState, useEffect } from "react";
-import { Input, Select, Checkbox, Button, IconButton } from "@/shared";
+import { Input, Select, Checkbox, Button, FileInput } from "@/shared";
 import { getDocumentTypes } from "@/services/selectService";
-import { useNavigate } from "react-router-dom";
-import { userSchema } from "../schemas/userSchema";
+import { useNavigate} from "react-router-dom";
+import {userSchema} from "../schemas/userSchema";
+import { User, Calendar } from "lucide-react";
 
 
 
 
 export default function UserRegisterForm (){
-        //
 
         //Navegacion
         const navigate = useNavigate();
@@ -23,10 +23,10 @@ export default function UserRegisterForm (){
             userName: "",
             userEmail: "",
             userPhone: "",
-            userDocumentType: "",
+            userDocumentTypes: "",
             userDocumentNumber: "",
             userPassword: "",
-            // userImage: [],
+            userImage: [],
 
             //Flags booleanos
             isStaff: false,
@@ -233,6 +233,23 @@ return(
                     onChange={handleChange}
                 />
 
+                <div>
+                    <p>Archivo minimo 1 y maximo 12 para su registro</p>
+                    <p>Peso máximo 10MB</p>
+                </div>
+
+
+                <FileInput 
+                    value={FormData.userImage}
+                    onChange={(files) => 
+                        setFormData((prev) => ({ ...prev, userImage: files }))
+                    }
+                    multiple={true}
+                />
+        {errors.userImgae && (
+            <span className="text-red-500 text-sm">{errors.userImage}</span>
+        )}
+
             </div>
 
             
@@ -245,11 +262,12 @@ return(
                         variant="secondary"
                         size="sm"
                         type="button"
-                        onClick={() => {console.log("Se oprimió el submit")}}
+                        onClick={() => {navigate(-1)}}
                     >
                      Cancelar
                     </Button>
                     <Button
+                        
                         variant="primary"
                         size="md"
                         type="submit"
@@ -259,13 +277,14 @@ return(
                     </Button>
                   
                 </div>
-                {/* IconButton */}
-
-                <IconButton/>
                 
-            
+                {/* IconButton de ejemplo */}
+                <User/>
+                <Calendar/>
           </form>
-          
         </div>
     );
 }
+
+
+

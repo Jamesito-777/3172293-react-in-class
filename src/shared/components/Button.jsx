@@ -25,6 +25,7 @@ export default function Button ({
         <button
             type={type}
             className={`
+                text-text-inverse
                 relative
                 inline-flex items-center justify-center
                 rounded-md
